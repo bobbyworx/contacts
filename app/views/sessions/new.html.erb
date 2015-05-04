@@ -1,0 +1,44 @@
+<body>
+  <div class='l-login'>
+    <div class='l-login-body'>
+      <div class='branding'>
+        <a href='#'>MiniContacts</a>
+      </div>
+    <div class='loginForm'>
+      <% flash.each do |name, msg| %>
+        <% if name == "alert" %>
+          <div class='field has-error'>
+            <div class='field-helper'>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            </div>
+          </div>
+          <% elsif name == "notice" %>
+            <div class='success', style="color:#00B100">
+              <div class='field-helper'>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+      <div class="fieldGroup">
+        <%= form_tag session_path do %>
+        <div class="field">
+          <%= label_tag :email, '' %>
+          <%= text_field_tag :email, nil, :placeholder => 'E-mail address', class: 'ctrl' %>
+        </div>
+
+        <div class="field">
+          <%= label_tag :password, '' %>
+          <%= password_field_tag :password, nil, :placeholder => 'Password', class: 'ctrl' %>
+        </div>
+
+        <div class='fieldGroup fieldGroup--actions'>
+          <div class='field'>
+            <%= button_tag 'LOGIN', class: 'btn btn--full btn--primary' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>

@@ -20,6 +20,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'unicorn'
+gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'pry-rails'
