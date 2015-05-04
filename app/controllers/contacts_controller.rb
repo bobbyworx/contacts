@@ -2,18 +2,18 @@ class ContactsController < ApplicationController
   before_filter :find_contact, only: %i{show edit update destroy}
 
   def index
-    @contacts = @contacts.all.sort_by(&:email)
+    @contacts = Contact.all.sort_by(&:email)
   end
 
   def new
-    @contact = contact.new
+    @contact = Contact.new
   end
 
   def create
-    @contact = @contacts.new(contact_params)
+    @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to root_url
-      flash[:notice] = "contact #{@contact.name} was successfully added to #{@account.name}."
+      flash[:success] = "Contact #{@contact.name} was successfully created!"
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
   def update
     if @contact.update(contact_params)
       redirect_to contacts_path
-      flash[:notice] = "contact #{@contact.name} was successfully updated!"
+      flash[:success] = "Contact #{@contact.name} was successfully updated!"
     else
       render :edit
     end
@@ -37,9 +37,8 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    respond_to do |format|
-      format.html { redirect_to contacts_path }
-    end
+    flash[:success] = "Contact #{@contact.name} was successfully deleted!"
+    redirect_to contacts_path
   end
 
   private
@@ -49,6 +48,6 @@ class ContactsController < ApplicationController
   end
 
   def find_contact
-    @contact = @contact.find(params[:id])
+    @contact = Contact.find(params[:id])
   end
 end

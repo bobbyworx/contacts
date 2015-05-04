@@ -1,0 +1,17 @@
+<% @title = "Add a new contact" %>
+
+<%= form_for @contact do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+     <div class="panel-title"><%= @title %></div>
+  </div>
+  <div class="panel-body">
+    <%= render partial: "form", locals: { f: f } %>
+  </div>
+
+  <div class="panel-footer">
+    <%= f.submit "Create contact", class: "btn btn-primary" %>
+    <%= link_to "cancel and go back", contacts_path, class: "btn btn-link" %>
+  </div>
+</div>
+<% end %>

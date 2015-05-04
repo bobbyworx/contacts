@@ -1,0 +1,22 @@
+<% @title = "Contacts" %>
+<div class="actions">
+  <%= link_to new_contact_path, class: "btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus"></i> Add contact
+  <% end %>
+</div>
+
+
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <%= render @contacts %>
+</tbody>
+</table>
+</div>
