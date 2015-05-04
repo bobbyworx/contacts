@@ -1,6 +1,15 @@
 <% @title = "Add a new contact" %>
 
 <%= form_for @contact do |f| %>
+  <% if @contact.errors.any? %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      <% @contact.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
+  <% end %>
 <div class="panel panel-default">
   <div class="panel-heading">
      <div class="panel-title"><%= @title %></div>
