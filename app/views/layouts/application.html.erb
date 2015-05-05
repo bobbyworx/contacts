@@ -2,13 +2,17 @@
 <html>
 <head>
   <title>Contacts</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <% if current_user %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <% else %>
+    <%= stylesheet_link_tag 'session', media: 'all' %>
+  <% end %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <%= render 'shared/navigation' %>
+  <%= render 'shared/navigation' if current_user %>
 
   <div id="main-container" class="container">
     <div class="row">
@@ -19,10 +23,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-xs-3">
-        <h3>Tealeaf Academy Todo</h3>
-      </div>
+    <% if current_user %>
+      <div class="row">
+        <div class="col-xs-3">
+          <h3>MiniContact</h3>
+        </div>
+    <% end %>
       <div class="col-xs-9">
         <%= yield %>
       </div>
