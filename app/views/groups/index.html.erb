@@ -1,0 +1,21 @@
+<% @title = "Groups" %>
+<div class="actions">
+  <%= link_to new_group_path, class: "btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus"></i> Add group
+  <% end %>
+</div>
+
+
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <%= render @groups %>
+</tbody>
+</table>
+</div>

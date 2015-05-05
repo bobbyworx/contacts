@@ -1,6 +1,6 @@
 <tr>
   <td><%= link_to "#{contact.name}", edit_contact_path(contact) %></td>
   <td><%= contact.email %></td>
-  <td><%= link_to 'Edit', edit_contact_path(contact), class: 'btn btn-info btn-xs' %></td>
-  <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+  <td><%= link_to 'Edit', edit_contact_path(contact), class: 'btn btn-info btn-xs' %>
+  <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
 </tr>

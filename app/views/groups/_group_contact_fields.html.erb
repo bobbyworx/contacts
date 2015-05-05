@@ -1,0 +1,3 @@
+<%= f.select :contact_id, options_for_select(current_user.contacts.collect{|contact| [contact, contact.first_name]}) %>
+      <%= f.submit "Add Contact", :class => 'btn btn-mini btn-info' %>
+    <%#= link_to_remove_association "Remove Contact", f, :class => 'btn btn-mini btn-info' %>
