@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_filter :find_group, only: %i{show edit update destroy}
 
   def index
-    @groups = current_user.groups.sort_by(&:name)
+    @groups = current_user.groups.paginate(:page => params[:page])#.sort_by(&:name)
   end
 
   def new

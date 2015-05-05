@@ -19,6 +19,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 gem 'cocoon'
+gem 'will_paginate-bootstrap'
 gem 'unicorn'
 gem 'bcrypt', '~> 3.1.7'
 

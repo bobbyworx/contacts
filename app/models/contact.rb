@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
+  self.per_page = 5
 
   belongs_to :user
   has_many :group_contacts

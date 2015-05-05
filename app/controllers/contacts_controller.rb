@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_filter :find_contact, only: %i{show edit update destroy}
 
   def index
-    @contacts = current_user.contacts.sort_by(&:email)
+    @contacts = current_user.contacts.paginate(:page => params[:page])#.sort_by(&:email)
   end
 
   def new
