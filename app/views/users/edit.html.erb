@@ -1,0 +1,21 @@
+<% @title = "Edit user" %>
+
+<%= form_for @user do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+     <div class="panel-title"><%= @title %></div>
+  </div>
+
+  <div class="panel-body">
+    <%= render partial: "form", locals: { f: f } %>
+  </div>
+
+  <div class="panel-footer">
+    <%= f.submit "Update user details", class: "btn btn-primary" %>
+    <%= link_to "cancel and go back", contacts_path, class: "btn btn-link" %>
+  </div>
+  <div class="panel-footer">
+    <%= link_to "Delete my account", user_path, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure you want to delete your account? There is no undo.' } %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="form-group">
+  <%= f.label :first_name, required: true %>
+  <%= f.text_field :first_name, required: true, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :last_name, required: true %>
+  <%= f.text_field :last_name, required: true, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :email, required: true %>
+  <%= f.text_field :email, required: true, class: "form-control" %>
+</div>
+
+<% unless params[:action ]== "edit" || params[:action]== "update" %>
+  <div class="form-group">
+    <%= f.label :password, required: true %>
+    <%= f.password_field :password, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, required: true %>
+    <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
+  </div>
+
+<% end %>

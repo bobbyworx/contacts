@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_filter :find_contact, only: %i{show edit update destroy}
 
   def index
-    @contacts = Contact.all.sort_by(&:email)
+    @contacts = current_user.contacts.sort_by(&:email)
   end
 
   def new
@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.new(contact_params)
     if @contact.save
       redirect_to root_url
       flash[:success] = "Contact #{@contact.name} was successfully created!"
@@ -44,10 +44,11 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :email )
+    params.require(:contact).permit(:first_name, :last_name, :email, :user_id)
   end
 
   def find_contact
     @contact = Contact.find(params[:id])
   end
+
 end
