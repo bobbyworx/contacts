@@ -28,6 +28,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    current_user = session[:user_id] = nil
+    redirect_to new_session_url, alert: "Signed out due to account cancelation."
+  end
+
 protected
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
