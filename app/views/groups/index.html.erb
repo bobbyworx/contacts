@@ -7,16 +7,17 @@
 
 
 <div class="table-responsive">
-<table class="table table-striped">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Actions</th>
-  </tr>
-</thead>
-<tbody>
-  <%= render @groups %>
-</tbody>
-</table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contacts</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+      <tbody>
+        <%= render @groups %>
+      </tbody>
+  </table>
 </div>
 <%= will_paginate @groups, :renderer => BootstrapPagination::Rails %>

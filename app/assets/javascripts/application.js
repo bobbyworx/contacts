@@ -19,17 +19,6 @@
 //= require contacts
 //= require groups
 
-// $(document).ready(function(){
-//   $('.btn-danger').bind('ajax:success', function() {
-//        $(this).closest('tr').fadeOut();
-//   });
-
-  $(document).on('ajax:success', '.btn-danger', function(e) {
-    $(e.currentTarget).closest('tr').fadeOut();
+$(document).on('ajax:success', '.btn-danger', function(e) {
+  $(e.currentTarget).closest('tr').fadeOut();
 });
-
-// $(document).ready(function() {
-//     $('.btn-danger').on('click', function() {
-//         $(this).closest('tr').fadeOut(1000);
-//     });
-// });

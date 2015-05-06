@@ -15,6 +15,9 @@
  *= require select2-bootstrap
  */
 
-@import "bootstrap-sprockets"
-@import "bootstrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
+td, th {
+  padding: 10px
+}

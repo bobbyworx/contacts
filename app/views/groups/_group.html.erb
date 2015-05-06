@@ -1,5 +1,7 @@
 <tr>
   <td><%= link_to "#{group.name}", edit_group_path(group) %></td>
+  <td><%= link_to "See Group's Contacts", "#", :class => "btn btn-info btn-xs expand_group_contacts_list" %></td>
   <td><%= link_to 'Edit', edit_group_path(group), class: 'btn btn-info btn-xs' %>
   <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
 </tr>
+<%= render partial: 'group_contacts_table', locals: { :group_contacts => group.contacts } %>
