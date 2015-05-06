@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  respond_to :html, :json
   before_filter :find_contact, only: %i{show edit update destroy}
 
   def index
@@ -37,8 +38,10 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    flash[:success] = "Contact #{@contact.name} was successfully deleted!"
-    redirect_to contacts_path
+    respond_to do |format|
+      format.json { head :no_content }
+      format.js   { render :nothing => true }
+    end
   end
 
   private

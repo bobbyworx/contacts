@@ -1,13 +1,10 @@
 <div class="form-group">
   <%= f.label :name, required: true %>
   <%= f.text_field :name, required: true, class: "form-control" %>
-  <%#= f.select :contact_id, options_for_select(current_user.contacts.collect{|c| [c, c.id]}) %>
-
-      <%#= f.fields_for :group_contacts do |contact| %>
-        <%#= render 'group_contact_fields', :f => contact %>
-      <%# end %>
-        <%#= link_to_add_association 'Add Contact', f, :group_contacts, :class => 'btn btn-mini btn-info' %>
-
+  <%#= f.fields_for :group_contacts do |contact| %>
+    <%#= render 'group_contact_fields', :f => contact %>
+  <%# end %>
+    <%#= link_to_add_association 'Add Contact', f, :group_contacts, :class => 'btn btn-mini btn-info' %>
 </div>
 
 <div class="form-group">

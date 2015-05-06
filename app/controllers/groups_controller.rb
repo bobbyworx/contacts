@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  respond_to :html, :json
   before_filter :find_group, only: %i{show edit update destroy}
 
   def index
@@ -11,7 +12,6 @@ class GroupsController < ApplicationController
 
   def create
     @group = current_user.groups.new(group_params)
-    binding.pry
     if @group.save
       redirect_to root_url
       flash[:success] = "group #{@group.name} was successfully created!"
@@ -38,8 +38,10 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    flash[:success] = "group #{@group.name} was successfully deleted!"
-    redirect_to groups_path
+    respond_to do |format|
+      format.json { head :no_content }
+      format.js   { render :nothing => true }
+    end
   end
 
   private
