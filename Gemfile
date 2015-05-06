@@ -29,6 +29,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
 end
 
+group :production do
+  gem 'pg'
+end
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
