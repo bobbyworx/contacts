@@ -1,6 +1,12 @@
 <tr>
   <td><%= link_to "#{group.name}", edit_group_path(group) %></td>
-  <td><%= link_to "See Group's Contacts", "#", :class => "btn btn-info btn-xs expand_group_contacts_list" %></td>
+  <td>
+    <% if group.contacts.empty? %>
+      <%= link_to "See Group's Contacts", "javascript:void(0)", "data-original-title" => "This group has no contacts!", "data-placement" => "top", :rel => "nofollow", :class => 'btn btn-info btn-xs', disabled: true %>
+    <% else %>
+      <%= link_to "See Group's Contacts", "#", :class => "btn btn-info btn-xs expand_group_contacts_list" %>
+    <% end %>
+    </td>
   <td><%= link_to 'Edit', edit_group_path(group), class: 'btn btn-info btn-xs' %>
   <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
 </tr>

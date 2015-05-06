@@ -22,3 +22,4 @@
 $(document).on('ajax:success', '.btn-danger', function(e) {
   $(e.currentTarget).closest('tr').fadeOut();
 });
+

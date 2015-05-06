@@ -47,7 +47,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, group_contacts_attributes: [:id, :first_name, :last_name, :email, :_destroy])
+    params.require(:group).permit(:name, :contact_ids => [])
   end
 
   def find_group
