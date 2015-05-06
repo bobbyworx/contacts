@@ -10,9 +10,8 @@
 
 </div>
 
-<span>Contacts</span>
-    <div class="control-group">
-        <%= collection_select(:group, :contact_ids, current_user.contacts, :id, :name,
-         {:selected => current_user.contact_ids, :include_blank => true}, { :multiple => true}) %>
-    </div>
+<div class="form-group">
+  <%= f.label :contact, :class => 'control-label' %>
+  <%= collection_select(:group, :contact_ids, current_user.contacts, :id, :name, {prompt: "Choose contacts"}, {class: "form-control", :multiple => true}) %>
+</div>
 

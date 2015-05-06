@@ -14,6 +14,6 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :group %>
-  <%= f.collection_select :group_ids, current_user.groups, :id, :name, {prompt: "Choose a group"}, {class: "form-control", :multiple => true} %>
+  <%= f.label :group, :class => 'control-label' %>
+  <%= collection_select(:contact, :group_ids, current_user.groups, :id, :name, {prompt: "Choose a group"}, {class: "form-control", :multiple => true}) %>
 </div>
