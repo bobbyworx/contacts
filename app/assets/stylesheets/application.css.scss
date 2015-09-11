@@ -16,8 +16,14 @@
  */
 
 @import "bootstrap-sprockets";
+
+@import "bootswatch/lumen/variables";
+
 @import "bootstrap";
 
+// And finally bootswatch style itself
+@import "bootswatch/lumen/bootswatch";
+
 td, th {
-  padding: 10px
+  padding: 10px;
 }
